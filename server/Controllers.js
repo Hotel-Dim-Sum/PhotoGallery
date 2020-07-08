@@ -18,7 +18,7 @@ function postSaveToList(req, res) {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).send(data);
+      res.status(201).send(data);
     }
   });
 }
