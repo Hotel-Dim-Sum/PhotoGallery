@@ -27,6 +27,8 @@ function updateSaveToList(roomId, id, listName, savedStatus, callback) {
     }, callback);
 }
 
-module.exports = {
-  getPhotos, postSaveToList, updateSaveToList,
-};
+function deleteRoom(roomId, callback) {
+  Gallery.deleteOne({ room_id: roomId }, callback);
+}
+
+module.exports = { getPhotos, postSaveToList, updateSaveToList, deleteRoom };

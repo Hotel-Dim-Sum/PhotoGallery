@@ -18,7 +18,7 @@ function postSaveToList(req, res) {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).send(data);
+      res.status(201).send(data);
     }
   });
 }
@@ -35,4 +35,15 @@ function updateSaveToList(req, res) {
   });
 }
 
-module.exports = { getPhotos, postSaveToList, updateSaveToList };
+function deleteRoom(req, res) {
+  const { roomId } = req.params;
+  Models.deleteRoom(roomId, (err, data) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(data);
+    }
+  });
+}
+
+module.exports = { getPhotos, postSaveToList, updateSaveToList, deleteRoom };
