@@ -21,4 +21,5 @@ CREATE TABLE hotelPhotoGallery.room (
   state text,
   room_photos list<frozen<photo>>,
   save_status list<frozen<savedList>>
+  primary key (city, room_id)
 );
