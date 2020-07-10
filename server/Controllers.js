@@ -35,9 +35,10 @@ function updateSaveToList(req, res) {
   });
 }
 
-function deleteRoom(req, res) {
+function deletePhoto(req, res) {
   const { roomId } = req.params;
-  Models.deleteRoom(roomId, (err, data) => {
+  const { id, name } = req.body;
+  Models.deletePhoto(roomId, id, name, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -46,4 +47,4 @@ function deleteRoom(req, res) {
   });
 }
 
-module.exports = { getPhotos, postSaveToList, updateSaveToList, deleteRoom };
+module.exports = { getPhotos, postSaveToList, updateSaveToList, deletePhoto };

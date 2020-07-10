@@ -38,7 +38,7 @@ If an error is found, that will be sent. Outside of that the response JSON objec
 {
   n: Number,
   nModified: Number,
-  ok: Number (1 = pass)
+  ok: Number
 }
 
 However this is ignored, but triggers a GET request, which returns data in the following shape (JSON):
@@ -66,7 +66,7 @@ If an error is found, that will be sent. Outside of that the response JSON objec
 {
   n: Number,
   nModified: Number,
-  ok: Number (1 = pass)
+  ok: Number
 }
 
 However this is ignored, but triggers a GET request, which returns data in the following shape (JSON):
@@ -80,7 +80,7 @@ However this is ignored, but triggers a GET request, which returns data in the f
   }],
 }
 
-## DELETE Room
+## DELETE List Entry
 This request uses the endpoint '/api/:roomId/photo-gallery'. From within here the roomId is passed in the path params. This is then used to query the database and delete the room.
 
 On a successfully call this will return a status of 200 and for a failure, it will return 400.
@@ -89,6 +89,6 @@ The request body is empty for this route.
 
 If an error is found, that will be sent. Outside of that the response JSON object is ignored but has the following shape:
 {
-    n: Number,
-    ok: Number
+  n: Number,
+  ok: Number
 }
