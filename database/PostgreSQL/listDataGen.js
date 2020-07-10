@@ -1,9 +1,9 @@
 let faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const list = (n) => {
+const list = (start, end) => {
   let records = [];
-  for (let i = 1; i <= n; i++) {
+  for (let i = start; i <= end; i++) {
     let record = {
       list_id: i,
       list_name: faker.company.bs(),
@@ -27,7 +27,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let listDump = list(10);
+let listDump = list(1, 10);
 
 csvWriter.writeRecords(listDump)
     .then(() => {

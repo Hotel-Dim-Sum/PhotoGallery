@@ -1,10 +1,10 @@
 let faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const images = (n) => {
+const images = (start, end, imageStart) => {
   let records = [];
-  let imageId = 1;
-  for (let i = 1; i <= n; i++) {
+  let imageId = imageStart;
+  for (let i = start; i <= end; i++) {
     let count = Math.floor(Math.random() * (10 - 5)) + 5;
     for (let j = 1; j <= count; j++) {
       let index = Math.floor(Math.random() * 1000) + 1;
@@ -38,7 +38,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let imageDump = images(10);
+let imageDump = images(1, 10, 1);
 
 csvWriter.writeRecords(imageDump)
     .then(() => {

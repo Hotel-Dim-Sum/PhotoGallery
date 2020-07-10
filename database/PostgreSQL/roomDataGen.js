@@ -1,9 +1,9 @@
 let faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const roomData = (n) => {
+const roomData = (start, end) => {
   let records = [];
-  for (let i = 1; i <= n; i++) {
+  for (let i = start; i <= end; i++) {
     let record = {
       room_id: i,
       room_name: faker.lorem.sentence(4, false),
@@ -25,7 +25,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let roomDump = roomData(10);
+let roomDump = roomData(1, 10);
 
 csvWriter.writeRecords(roomDump)
     .then(() => {

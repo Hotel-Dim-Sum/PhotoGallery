@@ -1,9 +1,9 @@
 let faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
-const userData = (n) => {
+const userData = (start, end) => {
   let records = [];
-  for (let i = 1; i <= n; i++) {
+  for (let i = start; i <= end; i++) {
     let record = {
       user_id: i,
       username: faker.name.findName()
@@ -21,7 +21,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let userDump = userData(10);
+let userDump = userData(1, 10);
 
 csvWriter.writeRecords(userDump)
     .then(() => {
