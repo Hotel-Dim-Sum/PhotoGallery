@@ -24,8 +24,6 @@ app.put('/api/:roomId/photo-gallery/save-status', (req, res) => {
   Controllers.updateSaveToList(req, res);
 });
 
-app.delete('/api/:roomId/photo-gallery', (req, res) => {
-  Controllers.deleteRoom(req, res);
-});
+app.delete('/api/:roomId/photo-gallery', Controllers.deletePhoto);
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

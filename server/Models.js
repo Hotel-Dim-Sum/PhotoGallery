@@ -27,8 +27,8 @@ function updateSaveToList(roomId, id, listName, savedStatus, callback) {
     }, callback);
 }
 
-function deleteRoom(roomId, callback) {
-  Gallery.deleteOne({ room_id: roomId }, callback);
+function deletePhoto(roomId, id, name, callback) {
+  Gallery.update({ room_id: roomId }, { "$pull": { "save_status": { "name": name } } }, { safe: true, multi: true },  callback);
 }
 
-module.exports = { getPhotos, postSaveToList, updateSaveToList, deleteRoom };
+module.exports = { getPhotos, postSaveToList, updateSaveToList, deletePhoto };
