@@ -8,8 +8,8 @@ const list = (start, end) => {
       list_id: i,
       list_name: faker.company.bs(),
       is_saved: faker.random.boolean(),
-      room_id: Math.floor(Math.random() * (1000 - 1)) + 1,
-      user_id: Math.floor(Math.random() * (1000 - 1)) + 1
+      room_id: Math.floor(Math.random() * (10 - 1)) + 1,
+      user_id: Math.floor(Math.random() * (10 - 1)) + 1
     }
     records.push(record);
   }
