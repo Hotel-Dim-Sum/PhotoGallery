@@ -21,7 +21,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let userDump = userData(1, 10);
+let userDump = userData(1, 100000);
 
 csvWriter.writeRecords(userDump)
   .then(() => {

@@ -38,7 +38,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let imageDump = images(1, 10, 1);
+let imageDump = images(9000001, 10000000, 63001084);
 
 csvWriter.writeRecords(imageDump)
   .then(() => {

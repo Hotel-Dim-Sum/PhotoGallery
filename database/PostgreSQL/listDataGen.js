@@ -8,8 +8,8 @@ const list = (start, end) => {
       list_id: i,
       list_name: faker.company.bs(),
       is_saved: faker.random.boolean(),
-      room_id: Math.floor(Math.random() * (10 - 1)) + 1,
-      user_id: Math.floor(Math.random() * (10 - 1)) + 1
+      room_id: Math.floor(Math.random() * (10000000 - 1)) + 1,
+      user_id: Math.floor(Math.random() * (100000 - 1)) + 1
     }
     records.push(record);
   }
@@ -27,7 +27,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let listDump = list(1, 10);
+let listDump = list(1, 200000);
 
 csvWriter.writeRecords(listDump)
   .then(() => {
