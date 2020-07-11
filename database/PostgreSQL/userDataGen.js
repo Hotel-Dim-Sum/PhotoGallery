@@ -16,14 +16,14 @@ const userData = (start, end) => {
 const csvWriter = createCsvWriter({
   path: './database/PostgreSQL/CSV/users.csv',
   header: [
-      {id: 'user_id', title: 'user_id'},
-      {id: 'username', title: 'username'}
+    {id: 'user_id', title: 'user_id'},
+    {id: 'username', title: 'username'}
   ]
 });
 
 let userDump = userData(1, 10);
 
 csvWriter.writeRecords(userDump)
-    .then(() => {
-        console.log('...Done');
-    });
+  .then(() => {
+    console.log('...Done');
+  });

@@ -31,16 +31,16 @@ const images = (start, end, imageStart) => {
 const csvWriter = createCsvWriter({
   path: './database/PostgreSQL/CSV/roomImages.csv',
   header: [
-      {id: 'image_id', title: 'image_id'},
-      {id: 'image_url', title: 'image_url'},
-      {id: 'image_description', title: 'image_description'},
-      {id: 'room_id', title: 'room_id'}
+    {id: 'image_id', title: 'image_id'},
+    {id: 'image_url', title: 'image_url'},
+    {id: 'image_description', title: 'image_description'},
+    {id: 'room_id', title: 'room_id'}
   ]
 });
 
 let imageDump = images(1, 10, 1);
 
 csvWriter.writeRecords(imageDump)
-    .then(() => {
-        console.log('...Done');
-    });
+  .then(() => {
+    console.log('...Done');
+  });

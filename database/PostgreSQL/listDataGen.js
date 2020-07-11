@@ -19,17 +19,17 @@ const list = (start, end) => {
 const csvWriter = createCsvWriter({
   path: './database/PostgreSQL/CSV/userLists.csv',
   header: [
-      {id: 'list_id', title: 'list_id'},
-      {id: 'list_name', title: 'list_name'},
-      {id: 'is_saved', title: 'is_saved'},
-      {id: 'room_id', title: 'room_id'},
-      {id: 'user_id', title: 'user_id'}
+    {id: 'list_id', title: 'list_id'},
+    {id: 'list_name', title: 'list_name'},
+    {id: 'is_saved', title: 'is_saved'},
+    {id: 'room_id', title: 'room_id'},
+    {id: 'user_id', title: 'user_id'}
   ]
 });
 
 let listDump = list(1, 10);
 
 csvWriter.writeRecords(listDump)
-    .then(() => {
-        console.log('...Done');
-    });
+  .then(() => {
+    console.log('...Done');
+  });

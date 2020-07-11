@@ -3,20 +3,20 @@ CREATE KEYSPACE hotelPhotoGallery WITH replication =
 
 CREATE TYPE photo (
   image_id int,
-  imageUrl text,
-  description text
+  image_url text,
+  image_description text
 );
 
 CREATE TYPE savedList (
   list_id int,
-  name text,
+  list_name text,
   saved boolean
 );
 
 CREATE TABLE hotelPhotoGallery.room (
   room_id int,
   user_id int,
-  name text,
+  room_name text,
   city text,
   state text,
   room_photos list<frozen<photo>>,

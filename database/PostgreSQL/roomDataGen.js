@@ -18,16 +18,16 @@ const roomData = (start, end) => {
 const csvWriter = createCsvWriter({
   path: './database/PostgreSQL/CSV/rooms.csv',
   header: [
-      {id: 'room_id', title: 'room_id'},
-      {id: 'room_name', title: 'room_name'},
-      {id: 'city', title: 'city'},
-      {id: 'state', title: 'state'}
+    {id: 'room_id', title: 'room_id'},
+    {id: 'room_name', title: 'room_name'},
+    {id: 'city', title: 'city'},
+    {id: 'state', title: 'state'}
   ]
 });
 
 let roomDump = roomData(1, 10);
 
 csvWriter.writeRecords(roomDump)
-    .then(() => {
-        console.log('...Done');
-    });
+  .then(() => {
+    console.log('...Done');
+  });
