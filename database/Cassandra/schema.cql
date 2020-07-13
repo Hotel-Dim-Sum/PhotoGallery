@@ -1,19 +1,9 @@
+DROP KEYSPACE hotelphotogallery;
+
 CREATE KEYSPACE hotelphotogallery WITH replication =
   {'class': 'SimpleStrategy', 'replication_factor' : 1};
 
 USE hotelphotogallery;
-
-CREATE TYPE photo (
-  image_id int,
-  image_url text,
-  image_description text
-);
-
-CREATE TYPE savedList (
-  list_id int,
-  list_name text,
-  saved boolean
-);
 
 CREATE TABLE hotelphotogallery.room (
   room_id int,
@@ -21,7 +11,32 @@ CREATE TABLE hotelphotogallery.room (
   room_name text,
   city text,
   state text,
-  room_photos list<frozen<photo>>,
-  save_status list<frozen<savedList>>,
+  image_id int,
+  image_url text,
+  image_description text,
+  list_id int,
+  list_name text,
+  saved boolean,
   primary key (city, room_id)
 );
+
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room1.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room2.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room3.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room4.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room5.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room6.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room7.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room8.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room9.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room10.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room11.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room12.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room13.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room14.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room15.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room16.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room17.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room18.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room19.csv' with header=true and delimiter =',';
+COPY room (room_id, user_id, room_name, city, state, image_id, image_url, image_description, list_id, list_name, saved) FROM '/Users/josef/Documents/HackReactor/HRSF128/hotel-dim-sum/PhotoGallery/database/Cassandra/CSV/room20.csv' with header=true and delimiter =',';
