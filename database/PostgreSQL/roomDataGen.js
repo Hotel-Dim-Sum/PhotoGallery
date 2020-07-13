@@ -25,7 +25,7 @@ const csvWriter = createCsvWriter({
   ]
 });
 
-let roomDump = roomData(1, 10);
+let roomDump = roomData(5000001, 10000000);
 
 csvWriter.writeRecords(roomDump)
   .then(() => {
