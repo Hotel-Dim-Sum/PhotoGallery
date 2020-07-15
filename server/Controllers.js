@@ -1,8 +1,9 @@
 const Models = require('./Models.js');
 
-function getPhotos(req, res) {
+function getRoomData(req, res) {
   const { roomId } = req.params;
-  Models.getPhotos(roomId, (err, data) => {
+  console.log('Hit: ', roomId);
+  Models.getRoomData(roomId, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -11,10 +12,10 @@ function getPhotos(req, res) {
   });
 }
 
-function postSaveToList(req, res) {
+function createList(req, res) {
   const { roomId } = req.params;
-  const { name, saved } = req.body;
-  Models.postSaveToList(roomId, name, saved, (err, data) => {
+  const { listName, isSaved, userId } = req.body;
+  Models.createList(listName, isSaved, roomId, userId, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
@@ -23,28 +24,27 @@ function postSaveToList(req, res) {
   });
 }
 
-function updateSaveToList(req, res) {
+function changeSaveStatus(req, res) {
   const { roomId } = req.params;
-  const { id, name, saved } = req.body;
-  Models.updateSaveToList(roomId, id, name, saved, (err, data) => {
+  const { isSaved, listId } = req.body;
+  Models.changeSaveStatus(isSaved, listId, roomId, (err, data) => {
     if (err) {
-      res.status(400).send(err);
+      res.status(404).send(err);
     } else {
-      res.status(200).send(data);
+      res.status(204).end();
     }
   });
 }
 
-function deletePhoto(req, res) {
-  const { roomId } = req.params;
-  const { id, name } = req.body;
-  Models.deletePhoto(roomId, id, name, (err, data) => {
+function deleteList(req, res) {
+  const { listId } = req.body;
+  Models.deleteList(listId, (err, data) => {
     if (err) {
       res.status(400).send(err);
     } else {
-      res.status(200).send(data);
+      res.status(204).end();
     }
   });
 }
 
-module.exports = { getPhotos, postSaveToList, updateSaveToList, deletePhoto };
+module.exports = { getRoomData, createList, changeSaveStatus, deleteList };
