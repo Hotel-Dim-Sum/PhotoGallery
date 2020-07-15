@@ -49,7 +49,7 @@ class App extends React.Component {
       method: 'GET',
       url: 'http://localhost:3004/api/51/photo-gallery',
       success: (data) => {
-        this.setState({ photos: data });
+        this.setState({ photos: [data] });
       },
       error: (err) => {
         console.log('err on ajax get: ', err);
