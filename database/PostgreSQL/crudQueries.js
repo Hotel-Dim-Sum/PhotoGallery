@@ -1,14 +1,18 @@
 const client = require('./index.js');
 
 function getRoomData(roomId, callback) {
-  client.query('SELECT * FROM rooms NATURAL JOIN roomImages WHERE rooms.room_id = ?', [roomId], (err, roomResponse) => {
-    if (err) callback(err);
-    client.query('SELECT * FROM users NATURAL JOIN userlists WHERE userlists.room_id = ?', [roomId], (err, listResponse) => {
-      if (err) callback(err);
-      let fullResponse = roomResponse.concat(listResponse);
-      callback(null, fullResponse);
-    });
-  });
+  let qString = `
+    SELECT rooms.*, roomImages.image_id, roomImages.image_url, roomImages.image_description, users.*, userLists.list_id, userLists.list_name, userLists.is_saved
+    FROM rooms
+    INNER JOIN roomImages
+    ON rooms.room_id = roomImages.room_id
+    LEFT JOIN userLists
+    ON roomImages.room_id = userLists.room_id
+    LEFT JOIN users
+    ON userLists.user_id = users.user_id
+    WHERE rooms.room_id = ?
+  `;
+  client.query(qString, [roomId], callback);
 }
 
 function createList(listName, isSaved, roomId, userId, callback) {
