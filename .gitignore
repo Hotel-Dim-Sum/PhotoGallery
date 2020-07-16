@@ -2,3 +2,5 @@ node_modules
 client/dist/bundle.js
 database/PostgreSQL/CSV
 database/Cassandra/CSV
+newrelic.js
+newrelic_agent.log
