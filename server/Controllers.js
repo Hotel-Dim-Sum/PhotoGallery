@@ -2,7 +2,6 @@ const Models = require('./Models.js');
 
 function getRoomData(req, res) {
   const { roomId } = req.params;
-  console.log('Hit: ', roomId);
   Models.getRoomData(roomId, (err, data) => {
     if (err) {
       res.status(400).send(err);

@@ -1,7 +1,6 @@
 const client = require('../database/PostgreSQL/index.js');
 
 function getRoomData(roomId, callback) {
-  console.log('Models GET');
   let qString = `
     SELECT rooms.*, roomImages.image_id, roomImages.image_url, roomImages.image_description, users.*, userLists.list_id, userLists.list_name, userLists.is_saved
     FROM rooms
