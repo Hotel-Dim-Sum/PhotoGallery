@@ -44,10 +44,10 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', this.changeViewOnWindowSize);
     window.addEventListener('resize', this.changeMainViewOnWindowSize);
-
+    let room_id = Math.floor(Math.random() * 10000000 - 1) + 1;
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3004/api/51/photo-gallery',
+      url: `http://localhost:3004/api/${room_id}/photo-gallery`,
       success: (data) => {
         this.setState({ photos: [data] });
       },
