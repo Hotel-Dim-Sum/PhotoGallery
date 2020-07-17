@@ -6,6 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
+    "cluster-dev": "nodemon server/indexCluster.js",
     "start": "node server/index.js",
     "db:setup": "node database/seed.js",
     "test": "jest"

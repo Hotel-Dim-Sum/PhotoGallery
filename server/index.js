@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const Controllers = require('./Controllers.js');
-const numCPUs = require('os').cpus().length;
 
 const app = express();
 const port = 3004;
