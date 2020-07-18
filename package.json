@@ -1,11 +1,12 @@
 {
-  "name": "PhotoGallery",
+  "name": "photogallery",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js",
+    "cluster-dev": "nodemon server/indexCluster.js",
     "start": "node server/index.js",
     "db:setup": "node database/seed.js",
     "test": "jest"
@@ -40,15 +41,17 @@
     "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "body-parser": "^1.17.0",
+    "cluster": "^0.7.7",
     "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
     "express": "^4.15.0",
+    "faker": "^4.1.0",
     "jquery": "^3.1.1",
     "mongoose": "^4.9.6",
+    "newrelic": "^6.11.0",
     "path": "^0.12.7",
+    "pg": "^8.3.0",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "faker": "^4.1.0",
-    "csv-writer": "^1.6.0",
-    "pg": "^8.3.0"
+    "react-dom": "^15.4.2"
   }
 }
